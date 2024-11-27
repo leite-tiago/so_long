@@ -6,31 +6,33 @@
 /*   By: tborges- <tborges-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 16:57:09 by tborges-          #+#    #+#             */
-/*   Updated: 2024/11/26 19:41:09 by tborges-         ###   ########.fr       */
+/*   Updated: 2024/11/27 10:53:31 by tborges-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-
-
 #include "libft.h"
+#include "so_long.h"
+#include <errno.h>
 #include <fcntl.h>
-#include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
-#include <errno.h>
+#include <unistd.h>
 
-typedef struct s_map {
+typedef struct s_map
+{
 	char	**data;
 	int		rows;
 	int		cols;
 	int		count_p;
 	int		count_e;
 	int		count_c;
-}	t_map;
+}			t_map;
 
-void	error_exit(const char *message, t_map *map);
+void		error_exit(const char *message, t_map *map);
 
+/**
+ * Check if the file extension is .ber.
+ */
 void	check_file_extension(const char *filename)
 {
 	size_t	len;
@@ -40,16 +42,21 @@ void	check_file_extension(const char *filename)
 		ft_printf("Error\nInvalid file extension. Must be .ber\n"), exit(1);
 }
 
+/**
+ * Count the number of lines in a file.
+ */
 int	count_lines_in_file(int fd)
 {
 	int		lines;
 	char	*line;
 
 	lines = 0;
-	while ((line = get_next_line(fd)))
+	line = get_next_line(fd);
+	while (line)
 	{
 		lines++;
 		free(line);
+		line = get_next_line(fd);
 	}
 	if (lines == 0)
 		ft_printf("Error\nEmpty map file\n"), exit(1);
@@ -57,10 +64,13 @@ int	count_lines_in_file(int fd)
 	return (lines);
 }
 
+/**
+ * Read the map from a file and store it in a t_map struct.
+ */
 void	read_map_from_file(const char *filename, t_map *map)
 {
-	int		fd;
-	int		i;
+	int	fd;
+	int	i;
 
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
@@ -85,6 +95,9 @@ void	read_map_from_file(const char *filename, t_map *map)
 	close(fd);
 }
 
+/**
+ * Initialize the map.
+ */
 void	init_map(int argc, char **argv, t_map *map)
 {
 	if (argc != 2)
@@ -94,4 +107,3 @@ void	init_map(int argc, char **argv, t_map *map)
 	read_map_from_file(argv[1], map);
 	validate_map(map);
 }
-
