@@ -6,14 +6,20 @@
 /*   By: tborges- <tborges-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 17:31:57 by tborges-          #+#    #+#             */
-/*   Updated: 2024/11/19 14:30:36 by tborges-         ###   ########.fr       */
+/*   Updated: 2024/11/28 12:10:06 by tborges-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	end_program(void)
+/**
+ * Exits the program with an error message.
+ * Frees the map memory if it exists.
+ */
+void	error_exit(const char *message, t_map *map)
 {
-	write(2, "Error\n", 6);
+	if (map)
+		free_map(map);
+	printf("Error\n%s\n", message);
 	exit(1);
 }

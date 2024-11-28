@@ -10,25 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-typedef struct s_map {
-	char	**data;
-	int		rows;
-	int		cols;
-	int		count_p;
-	int		count_e;
-	int		count_c;
-}	t_map;
-
-void	init_map(int argc, char **argv, t_map *map);
+#include "so_long.h"
 
 int	main(int argc, char **argv)
 {
 	t_map	map;
-
 	init_map(argc, argv, &map);
-	printf("Map initialized successfully!\n");
-	validate_map(&map);
+	free_map(&map);
 	return (0);
 }

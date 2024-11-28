@@ -6,7 +6,7 @@
 #    By: tborges- <tborges-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/13 10:04:55 by tborges-          #+#    #+#              #
-#    Updated: 2024/11/26 16:41:25 by tborges-         ###   ########.fr        #
+#    Updated: 2024/11/28 12:23:08 by tborges-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror -I ./mlx -I ./libft -I /opt/X11/include
 
 # Diretórios e arquivos
-SRCS = so_long.c
+SRCS = so_long.c frees.c error.c map_init.c map_read.c map_validation.c
 OBJS = $(SRCS:.c=.o)
 
 # Diretório da libft

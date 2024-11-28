@@ -6,7 +6,7 @@
 /*   By: tborges- <tborges-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 16:48:16 by tborges-          #+#    #+#             */
-/*   Updated: 2024/11/26 16:49:13 by tborges-         ###   ########.fr       */
+/*   Updated: 2024/11/28 12:10:31 by tborges-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,13 @@
  */
 void	free_map(t_map *map)
 {
-	for (int i = 0; i < map->rows; i++)
+	int	i;
+
+	i = 0;
+	while (i < map->rows)
+	{
 		free(map->data[i]);
+		i++;
+	}
 	free(map->data);
 }
