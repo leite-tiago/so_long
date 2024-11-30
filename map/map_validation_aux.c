@@ -6,11 +6,11 @@
 /*   By: tborges- <tborges-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 12:25:39 by tborges-          #+#    #+#             */
-/*   Updated: 2024/11/28 12:39:53 by tborges-         ###   ########.fr       */
+/*   Updated: 2024/11/30 12:18:49 by tborges-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 /**
  * Finds the player position and starts the flood fill algorithm.
@@ -38,22 +38,6 @@ void	find_player_and_fill(char **copy, t_map *map, t_flood *flood)
 }
 
 /**
- * Frees the copy map.
- */
-void	free_copy(char **copy, int rows)
-{
-	int	i;
-
-	i = 0;
-	while (i < rows)
-	{
-		free(copy[i]);
-		i++;
-	}
-	free(copy);
-}
-
-/**
  * Copies the map to be used in the flood fill algorithm.
  */
 void	copy_map(char **copy, t_map *map)
@@ -63,7 +47,7 @@ void	copy_map(char **copy, t_map *map)
 	i = 0;
 	while (i < map->rows)
 	{
-		copy[i] = strdup(map->data[i]);
+		copy[i] = ft_strdup(map->data[i]);
 		if (!copy[i])
 			error_exit("Memory allocation failed", map);
 		i++;

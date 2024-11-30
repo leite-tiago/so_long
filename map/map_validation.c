@@ -6,11 +6,11 @@
 /*   By: tborges- <tborges-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 12:12:48 by tborges-          #+#    #+#             */
-/*   Updated: 2024/11/28 12:40:50 by tborges-         ###   ########.fr       */
+/*   Updated: 2024/11/30 12:18:52 by tborges-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 /**
  * Main function to validate the map.
@@ -33,7 +33,7 @@ void	validate_map_format(t_map *map)
 	i = 0;
 	while (i < map->rows)
 	{
-		if ((int)strlen(map->data[i]) != map->cols)
+		if ((int)ft_strlen(map->data[i]) != map->cols)
 			error_exit("Map is not rectangular", map);
 		j = 0;
 		while (j < map->cols)

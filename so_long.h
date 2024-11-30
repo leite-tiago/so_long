@@ -6,7 +6,7 @@
 /*   By: tborges- <tborges-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 21:02:14 by tborges-          #+#    #+#             */
-/*   Updated: 2024/11/28 12:40:33 by tborges-         ###   ########.fr       */
+/*   Updated: 2024/11/30 12:16:47 by tborges-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ typedef struct s_map
 
 typedef struct s_flood
 {
-	int		collectibles;
-	int		exit_found;
-}	t_flood;
+	int	collectibles;
+	int	exit_found;
+}		t_flood;
 
 // events
 enum
@@ -53,6 +53,7 @@ void	error_exit(const char *message, t_map *map);
 
 // frees
 void	free_map(t_map *map);
+void	free_copy(char **copy, int rows);
 
 // map_init
 void	init_map(int argc, char **argv, t_map *map);
@@ -73,7 +74,6 @@ void	validate_path(t_map *map);
 
 // map_validation_aux
 void	find_player_and_fill(char **copy, t_map *map, t_flood *flood);
-void	free_copy(char **copy, int rows);
 void	copy_map(char **copy, t_map *map);
 void	flood_fill(char **map, int x, int y, t_flood *flood);
-int	is_valid_char(char c);
+int		is_valid_char(char c);

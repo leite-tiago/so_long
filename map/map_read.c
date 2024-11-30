@@ -6,11 +6,11 @@
 /*   By: tborges- <tborges-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 11:55:05 by tborges-          #+#    #+#             */
-/*   Updated: 2024/11/28 12:01:02 by tborges-         ###   ########.fr       */
+/*   Updated: 2024/11/30 12:18:45 by tborges-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 /**
  * Reads the map file line by line and stores it in the map structure.

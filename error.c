@@ -6,7 +6,7 @@
 /*   By: tborges- <tborges-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 17:31:57 by tborges-          #+#    #+#             */
-/*   Updated: 2024/11/28 12:10:06 by tborges-         ###   ########.fr       */
+/*   Updated: 2024/11/30 11:47:54 by tborges-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	error_exit(const char *message, t_map *map)
 {
 	if (map)
 		free_map(map);
-	printf("Error\n%s\n", message);
+	ft_printf("Error\n%s\n", message);
 	exit(1);
 }

@@ -6,11 +6,11 @@
 /*   By: tborges- <tborges-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 16:57:09 by tborges-          #+#    #+#             */
-/*   Updated: 2024/11/28 12:08:34 by tborges-         ###   ########.fr       */
+/*   Updated: 2024/11/30 12:18:38 by tborges-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 /**
  * Initializes the map structure.
@@ -36,7 +36,7 @@ void	check_file_extension(const char *filename)
 	size_t	len;
 
 	len = ft_strlen(filename);
-	if (len < 4 || ft_strcmp(filename + len - 4, ".ber") != 0)
+	if (len < 4 || ft_strncmp(filename + len - 4, ".ber", 4) != 0)
 	{
 		ft_printf("Error\nInvalid file extension. Must be .ber\n");
 		exit(1);
