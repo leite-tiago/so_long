@@ -6,7 +6,7 @@
 /*   By: tborges- <tborges-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 11:55:05 by tborges-          #+#    #+#             */
-/*   Updated: 2024/11/30 12:18:45 by tborges-         ###   ########.fr       */
+/*   Updated: 2024/11/30 17:27:23 by tborges-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,9 @@ void	read_map_line(int fd, t_map *map, int index)
 {
 	map->data[index] = get_next_line(fd);
 	if (!map->data[index])
-	{
-		ft_printf("Error\nFailed to read line from file\n");
-		exit(1);
-	}
+		error_exit("Failed to read line from file");
 	if (map->cols == 0)
 		map->cols = ft_strlen(map->data[index]);
 	else if ((int)ft_strlen(map->data[index]) != map->cols)
-		error_exit("Map is not rectangular", map);
+		error_exit_map("Map is not rectangular", map);
 }

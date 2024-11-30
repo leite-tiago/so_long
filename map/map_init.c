@@ -6,7 +6,7 @@
 /*   By: tborges- <tborges-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 16:57:09 by tborges-          #+#    #+#             */
-/*   Updated: 2024/11/30 12:18:38 by tborges-         ###   ########.fr       */
+/*   Updated: 2024/11/30 17:26:36 by tborges-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@
 void	init_map(int argc, char **argv, t_map *map)
 {
 	if (argc != 2)
-	{
-		ft_printf("Error\nUsage: %s <map_file.ber>\n", argv[0]);
-		exit(1);
-	}
+		error_exit("Usage: ./so_long <map_file.ber>\n");
 	check_file_extension(argv[1]);
 	ft_memset(map, 0, sizeof(t_map));
 	read_map_from_file(argv[1], map);
@@ -37,10 +34,7 @@ void	check_file_extension(const char *filename)
 
 	len = ft_strlen(filename);
 	if (len < 4 || ft_strncmp(filename + len - 4, ".ber", 4) != 0)
-	{
-		ft_printf("Error\nInvalid file extension. Must be .ber\n");
-		exit(1);
-	}
+		error_exit("Invalid file extension. Must be .ber\n");
 }
 
 /**
@@ -60,10 +54,7 @@ int	count_lines_in_file(int fd)
 		line = get_next_line(fd);
 	}
 	if (lines == 0)
-	{
-		ft_printf("Error\nEmpty map file\n");
-		exit(1);
-	}
+		error_exit("Empty map file\n");
 	close(fd);
 	return (lines);
 }
@@ -77,10 +68,7 @@ int	open_map_file(const char *filename)
 
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
-	{
-		ft_printf("Error\nFailed to open file\n");
-		exit(1);
-	}
+		error_exit("Failed to open file\n");
 	return (fd);
 }
 
@@ -91,8 +79,5 @@ void	allocate_map_data(t_map *map)
 {
 	map->data = malloc(sizeof(char *) * map->rows);
 	if (!map->data)
-	{
-		ft_printf("Error\nMemory allocation failed\n");
-		exit(1);
-	}
+		error_exit("Memory allocation failed\n");
 }

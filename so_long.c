@@ -6,7 +6,7 @@
 /*   By: tborges- <tborges-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 21:02:33 by tborges-          #+#    #+#             */
-/*   Updated: 2024/11/19 11:33:56 by tborges-         ###   ########.fr       */
+/*   Updated: 2024/11/30 14:08:19 by tborges-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,7 @@
 
 #include "so_long.h"
 
-typedef struct s_vars {
-	void	*mlx;
-	void	*win;
-}				t_vars;
-
-int	handle_keypress(int keycode, t_vars *vars)
+int	handle_keypress(int keycode)
 {
 	if (keycode == 65307) // esc
 		exit(0);
@@ -51,7 +46,7 @@ int	handle_keypress(int keycode, t_vars *vars)
 }
 
 /**
- * When the user clicks on the "x" of the window the program must end.
+ * When the user clicks on the "X" of the window the program must end.
  */
 int	close_window(void *param)
 {
@@ -59,15 +54,18 @@ int	close_window(void *param)
 	exit(0);
 }
 
-int main(void)
+int main(int argc, char **argv)
 {
-	t_vars	vars;
+	t_game	game;
+	t_map	map;
 
-	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, 800, 600, "so_long");
+	game.mlx = mlx_init();
+	init_map(argc, argv, &map);
+	game.win = mlx_new_window(game.mlx, game.map.cols * SPRITE_SIZE, game.map.rows
+			* SPRITE_SIZE, "So Long");
+	render_map(&game);
+	mlx_hook(game.win, ON_DESTROY, 0, close_window, &game);
+	mlx_hook(game.win, ON_KEYDOWN, 1L<<0, handle_keypress, &game);
 
-	mlx_hook(vars.win, ON_DESTROY, 0, close_window, &vars);
-	mlx_hook(vars.win, ON_KEYDOWN, 1L<<0, handle_keypress, &vars);
-
-	mlx_loop(vars.mlx);
+	mlx_loop(game.mlx);
 }

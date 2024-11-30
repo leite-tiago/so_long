@@ -6,7 +6,7 @@
 /*   By: tborges- <tborges-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 12:25:39 by tborges-          #+#    #+#             */
-/*   Updated: 2024/11/30 12:18:49 by tborges-         ###   ########.fr       */
+/*   Updated: 2024/11/30 17:27:55 by tborges-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	copy_map(char **copy, t_map *map)
 	{
 		copy[i] = ft_strdup(map->data[i]);
 		if (!copy[i])
-			error_exit("Memory allocation failed", map);
+			error_exit_map("Memory allocation failed", map);
 		i++;
 	}
 }
