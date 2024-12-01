@@ -6,7 +6,7 @@
 /*   By: tborges- <tborges-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 21:02:14 by tborges-          #+#    #+#             */
-/*   Updated: 2024/11/30 17:23:09 by tborges-         ###   ########.fr       */
+/*   Updated: 2024/12/01 22:48:04 by tborges-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@
 
 typedef struct s_map
 {
-	char **data; // Armazena o mapa
-	int rows;    // Número de linhas
-	int cols;    // Número de colunas
-	int count_p; // Contador de 'P'
-	int count_e; // Contador de 'E'
-	int count_c; // Contador de 'C'
+	char **data;
+	int rows;
+	int cols;
+	int count_p;
+	int count_e;
+	int count_c;
 }				t_map;
 
 typedef struct s_flood
@@ -105,3 +105,6 @@ int				is_valid_char(char c);
 void			render_map(t_game *game);
 void			render_tile(t_game *game, char tile, int x, int y);
 void			load_textures(t_game *game);
+
+// input
+void	move_player(t_map map, char *direction);

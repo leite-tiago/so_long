@@ -6,7 +6,7 @@
 /*   By: tborges- <tborges-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 21:02:33 by tborges-          #+#    #+#             */
-/*   Updated: 2024/12/01 22:19:01 by tborges-         ###   ########.fr       */
+/*   Updated: 2024/12/01 22:48:29 by tborges-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,15 @@ int	handle_keypress(int keycode)
 	if (keycode == 65307) // esc
 		exit(0);
 	else if (keycode == 97 || keycode == 65361) // a or left arrow
-		// move_left();
 	{
 		write(1, "left\n", 5);
+		move_player(game.map, "left");
 	}
 	else if (keycode == 119 || keycode == 65362) // w or up arrow
 		// move_up();
 	{
 		write(1, "up\n", 3);
+		move_player(game.map, "left");
 	}
 	else if (keycode == 100 || keycode == 65363) // d or rigth arrow
 		// move_rigth();
