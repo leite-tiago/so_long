@@ -6,7 +6,7 @@
 /*   By: tborges- <tborges-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 21:02:33 by tborges-          #+#    #+#             */
-/*   Updated: 2024/11/30 14:08:19 by tborges-         ###   ########.fr       */
+/*   Updated: 2024/12/01 22:19:01 by tborges-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,12 @@ int	close_window(void *param)
 int main(int argc, char **argv)
 {
 	t_game	game;
-	t_map	map;
 
 	game.mlx = mlx_init();
-	init_map(argc, argv, &map);
+	init_map(argc, argv, &game.map);
 	game.win = mlx_new_window(game.mlx, game.map.cols * SPRITE_SIZE, game.map.rows
 			* SPRITE_SIZE, "So Long");
+	load_textures(&game);
 	render_map(&game);
 	mlx_hook(game.win, ON_DESTROY, 0, close_window, &game);
 	mlx_hook(game.win, ON_KEYDOWN, 1L<<0, handle_keypress, &game);

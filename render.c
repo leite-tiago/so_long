@@ -6,7 +6,7 @@
 /*   By: tborges- <tborges-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 13:13:34 by tborges-          #+#    #+#             */
-/*   Updated: 2024/11/30 17:15:27 by tborges-         ###   ########.fr       */
+/*   Updated: 2024/12/01 22:20:19 by tborges-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,12 @@ void	render_map(t_game *game)
 		while (x < game->map.cols)
 		{
 			render_tile(game, game->map.data[y][x], x, y);
+
 			x++;
 		}
 		y++;
 	}
+
 }
 
 /**

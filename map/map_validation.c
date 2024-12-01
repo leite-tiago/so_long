@@ -6,7 +6,7 @@
 /*   By: tborges- <tborges-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 12:12:48 by tborges-          #+#    #+#             */
-/*   Updated: 2024/11/30 17:28:41 by tborges-         ###   ########.fr       */
+/*   Updated: 2024/12/01 19:20:03 by tborges-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,10 @@ void	validate_map_format(t_map *map)
 		while (j < map->cols)
 		{
 			if (!is_valid_char(map->data[i][j]))
+			{
+				ft_printf("Invalid character: %c\n", map->data[i][j]);
 				error_exit_map("Map contains invalid characters", map);
+			}
 			if (map->data[i][j] == 'P')
 				map->count_p++;
 			if (map->data[i][j] == 'E')
