@@ -6,7 +6,7 @@
 /*   By: tborges- <tborges-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 21:02:33 by tborges-          #+#    #+#             */
-/*   Updated: 2024/12/02 11:23:42 by tborges-         ###   ########.fr       */
+/*   Updated: 2024/12/02 13:06:33 by tborges-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ int	handle_keypress(int keycode, void *param)
 			&height, &width);
 	}
 	render_map(game);
-	ft_printf("Moves: %d\n", game->count_moves);
 	return 0;
 }
 
@@ -78,10 +77,12 @@ int main(int argc, char **argv)
 	game.count_moves = 0;
 	init_map(argc, argv, &game.map);
 	game.win = mlx_new_window(game.mlx, game.map.cols * SPRITE_SIZE, game.map.rows
-			* SPRITE_SIZE, "So Long");
+			* SPRITE_SIZE, "so_long");
 	load_textures(&game);
 	render_map(&game);
 	mlx_hook(game.win, ON_DESTROY, 0, close_window, &game);
 	mlx_hook(game.win, ON_KEYDOWN, 1L << 0, handle_keypress, &game);
+	mlx_expose_hook(game.win, render_map, &game);
+
 	mlx_loop(game.mlx);
 }

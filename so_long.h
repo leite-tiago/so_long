@@ -6,7 +6,7 @@
 /*   By: tborges- <tborges-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 21:02:14 by tborges-          #+#    #+#             */
-/*   Updated: 2024/12/02 11:21:42 by tborges-         ###   ########.fr       */
+/*   Updated: 2024/12/02 13:16:59 by tborges-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@
 
 typedef struct s_map
 {
-	char **data;
-	int rows;
-	int cols;
-	int count_p;
-	int count_e;
-	int count_c;
+	char		**data;
+	int			rows;
+	int			cols;
+	int			count_p;
+	int			count_e;
+	int			count_c;
 }				t_map;
 
 typedef struct s_flood
@@ -48,13 +48,13 @@ typedef struct s_game
 	void		*win;
 	t_textures	textures;
 	t_map		map;
-	int 		count_moves;
+	int			count_moves;
 }				t_game;
 
 typedef struct s_coordinates
 {
-	int	x;
-	int	y;
+	int			x;
+	int			y;
 }				t_coordinates;
 
 #define SPRITE_SIZE 32
@@ -109,18 +109,20 @@ void			flood_fill(char **map, int x, int y, t_flood *flood);
 int				is_valid_char(char c);
 
 // render
-void			render_map(t_game *game);
+int				render_map(void *param);
 void			render_tile(t_game *game, char tile, int x, int y);
 void			load_textures(t_game *game);
 
 // input
-void	move_player(t_game *game, t_coordinates current, t_coordinates destination);
-void	check_restritions(t_game *game, t_coordinates current, t_coordinates destination);
-void	move_left(t_game *game);
-void	move_up(t_game *game);
-void	move_rigth(t_game *game);
-void	move_down(t_game *game);
+void			move_player(t_game *game, t_coordinates current,
+					t_coordinates destination);
+void			check_restritions(t_game *game, t_coordinates current,
+					t_coordinates destination);
+void			move_left(t_game *game);
+void			move_up(t_game *game);
+void			move_rigth(t_game *game);
+void			move_down(t_game *game);
 t_coordinates	get_player_position(t_map map);
 
 // so_long
-int	handle_keypress(int keycode, void *param);
+int				handle_keypress(int keycode, void *param);

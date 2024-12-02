@@ -6,7 +6,7 @@
 /*   By: tborges- <tborges-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 22:45:19 by tborges-          #+#    #+#             */
-/*   Updated: 2024/12/02 11:21:11 by tborges-         ###   ########.fr       */
+/*   Updated: 2024/12/02 13:04:12 by tborges-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	move_player(t_game *game, t_coordinates current, t_coordinates destination)
 	map->data[destination.y][destination.x] = 'P';
 	map->data[current.y][current.x] = '0';
 	game->count_moves++;
+	ft_printf("Moves: %d\n", game->count_moves);
 }
 
 void	check_restritions(t_game *game, t_coordinates current, t_coordinates destination)

@@ -6,7 +6,7 @@
 /*   By: tborges- <tborges-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 13:13:34 by tborges-          #+#    #+#             */
-/*   Updated: 2024/12/01 22:20:19 by tborges-         ###   ########.fr       */
+/*   Updated: 2024/12/02 13:08:49 by tborges-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 /**
  * Renders the map on the window.
  */
-void	render_map(t_game *game)
+int	render_map(void *param)
 {
+	t_game *game;
+
+	game = (t_game *)param;
 	int	x;
 	int	y;
 
@@ -32,7 +35,7 @@ void	render_map(t_game *game)
 		}
 		y++;
 	}
-
+	return (0);
 }
 
 /**
