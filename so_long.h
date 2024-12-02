@@ -6,7 +6,7 @@
 /*   By: tborges- <tborges-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 21:02:14 by tborges-          #+#    #+#             */
-/*   Updated: 2024/12/01 22:48:04 by tborges-         ###   ########.fr       */
+/*   Updated: 2024/12/02 11:21:42 by tborges-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,14 @@ typedef struct s_game
 	void		*win;
 	t_textures	textures;
 	t_map		map;
+	int 		count_moves;
 }				t_game;
+
+typedef struct s_coordinates
+{
+	int	x;
+	int	y;
+}				t_coordinates;
 
 #define SPRITE_SIZE 32
 
@@ -107,4 +114,13 @@ void			render_tile(t_game *game, char tile, int x, int y);
 void			load_textures(t_game *game);
 
 // input
-void	move_player(t_map map, char *direction);
+void	move_player(t_game *game, t_coordinates current, t_coordinates destination);
+void	check_restritions(t_game *game, t_coordinates current, t_coordinates destination);
+void	move_left(t_game *game);
+void	move_up(t_game *game);
+void	move_rigth(t_game *game);
+void	move_down(t_game *game);
+t_coordinates	get_player_position(t_map map);
+
+// so_long
+int	handle_keypress(int keycode, void *param);
