@@ -6,7 +6,7 @@
 /*   By: tborges- <tborges-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 16:57:09 by tborges-          #+#    #+#             */
-/*   Updated: 2024/12/01 20:24:42 by tborges-         ###   ########.fr       */
+/*   Updated: 2024/12/02 16:36:56 by tborges-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 void	init_map(int argc, char **argv, t_map *map)
 {
 	if (argc != 2)
-		error_exit("Usage: ./so_long <map_file.ber>\n");
+		error_exit("Usage: ./so_long <map_file.ber>");
 	check_file_extension(argv[1]);
 	ft_memset(map, 0, sizeof(t_map));
 	read_map_from_file(argv[1], map);

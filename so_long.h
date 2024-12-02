@@ -6,7 +6,7 @@
 /*   By: tborges- <tborges-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 21:02:14 by tborges-          #+#    #+#             */
-/*   Updated: 2024/12/02 13:16:59 by tborges-         ###   ########.fr       */
+/*   Updated: 2024/12/02 19:45:51 by tborges-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,13 +116,16 @@ void			load_textures(t_game *game);
 // input
 void			move_player(t_game *game, t_coordinates current,
 					t_coordinates destination);
-void			check_restritions(t_game *game, t_coordinates current,
-					t_coordinates destination);
 void			move_left(t_game *game);
 void			move_up(t_game *game);
 void			move_rigth(t_game *game);
 void			move_down(t_game *game);
+
+// input aux
+void			check_restritions(t_game *game, t_coordinates current,
+					t_coordinates destination);
 t_coordinates	get_player_position(t_map map);
 
 // so_long
 int				handle_keypress(int keycode, void *param);
+void			open_door(t_game *game);

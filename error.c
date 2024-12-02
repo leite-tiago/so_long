@@ -6,7 +6,7 @@
 /*   By: tborges- <tborges-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 17:31:57 by tborges-          #+#    #+#             */
-/*   Updated: 2024/12/01 20:33:05 by tborges-         ###   ########.fr       */
+/*   Updated: 2024/12/02 19:42:58 by tborges-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,6 @@ void	error_exit_map(const char *message, t_map *map)
  */
 void	error_exit_game(const char *message, t_game *game)
 {
-	//
-	ft_printf("houve erro");
-	//
 	if (game)
 		free_game(game);
 	error_exit(message);

@@ -6,7 +6,7 @@
 /*   By: tborges- <tborges-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 13:13:34 by tborges-          #+#    #+#             */
-/*   Updated: 2024/12/02 13:08:49 by tborges-         ###   ########.fr       */
+/*   Updated: 2024/12/02 19:45:23 by tborges-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,11 @@
  */
 int	render_map(void *param)
 {
-	t_game *game;
+	t_game	*game;
+	int		x;
+	int		y;
 
 	game = (t_game *)param;
-	int	x;
-	int	y;
-
 	y = 0;
 	while (y < game->map.rows)
 	{
@@ -30,7 +29,6 @@ int	render_map(void *param)
 		while (x < game->map.cols)
 		{
 			render_tile(game, game->map.data[y][x], x, y);
-
 			x++;
 		}
 		y++;
