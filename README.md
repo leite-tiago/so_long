@@ -40,17 +40,16 @@ so_long is a 2D game developed as part of the 42 curriculum. The project involve
    ```bash
    git clone https://github.com/your_username/so_long.git
    cd so_long
-Compile the project:
-
-bash
-Copiar código
+2. Compile the project:
+```bash
 make
-Run the game:
+```
+3. Run the game:
 
-bash
-Copiar código
+```bash
 ./so_long <map_file>
-🗺️ Map Requirements
+```
+## 🗺️ Map Requirements
 The map must be rectangular.
 It must contain:
 At least one player starting position (P).
