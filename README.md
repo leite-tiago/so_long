@@ -39,7 +39,7 @@
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your_username/so_long.git
+   git clone https://github.com/leite-tiago/so_long.git
    cd so_long
    ```
 
