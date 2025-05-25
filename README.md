@@ -38,7 +38,7 @@ so_long is a 2D game developed as part of the 42 curriculum. The project involve
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your_username/so_long.git
+   git clone https://github.com/leite-tiago/so_long.git
    cd so_long
 2. Compile the project:
 ```bash
